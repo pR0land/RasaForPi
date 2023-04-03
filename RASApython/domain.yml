@@ -1,0 +1,64 @@
+version: "3.1"
+
+intents:
+  - pause
+  - resume
+  - gentag
+  - uddyb
+  - what
+  - besvarelse_dårlig
+  - besvarelse_god
+  - afkræft
+  - bekræft
+  - stop
+  - vågn_op
+  - goodbye
+  - bot_challenge
+  - spørgsmål
+
+responses:
+  utter_greet:
+  - text: "Hej! Er du klar til at besvare spørgeskemaer?"
+
+  utter_besvarD:
+  - text: "Det er jeg ked af at høre, vil du uddybe hvorfor?"
+
+  utter_besvarG:
+  - text: "Godt at høre, har du nogen tilføjelser?"
+
+  utter_pause:
+  - text: "Jeg venter"
+
+  utter_resume:
+    - text: "Ok vi fortsætter"
+
+  utter_gentag:
+    - text: "Jeg gentager spørgsmålet"
+
+  utter_what:
+    - text: "Undskyld det forstod jeg ikke, kan du gentage?"
+
+  utter_uddyb:
+    - text: "Jeg uddyber spørgsmålet"
+
+  utter_goodbye:
+  - text: "Farvel :)"
+
+  utter_spørgeskema:
+    - text: "Der er ... spørgeskema(er), i dag."
+
+  utter_iamabot:
+  - text: "Jeg er en robot, lavet af Rasa."
+
+  utter_bekræft:
+    - text: "Godt!"
+
+  utter_afkræft:
+    - text: "OK"
+
+  utter_testSp:
+    - text: "Hvordan har du det?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

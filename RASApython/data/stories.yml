@@ -1,0 +1,38 @@
+version: "3.1"
+
+stories:
+
+- story: only_good
+  steps:
+    - intent: vågn_op
+    - action: utter_greet
+    - intent: bekræft
+    - action: utter_bekræft
+    - intent: bekræft
+    - action: utter_bekræft
+    - action: utter_testSp
+    - intent: besvarelse_god
+    - action: utter_besvarG
+    - intent: pause
+    - action: utter_pause
+    - intent: resume
+    - action: utter_resume
+    - intent: gentag
+    - action: utter_gentag
+    - intent: what
+    - action: utter_what
+    - intent: stop
+    - action: utter_goodbye
+    - intent: uddyb
+    - action: utter_uddyb
+    - intent: spørgsmål
+    - action: utter_uddyb
+
+- story: only_bad
+  steps:
+  - intent: vågn_op
+  - action: utter_greet
+  - intent: besvarelse_dårlig
+  - action: utter_besvarD
+  - intent: afkræft
+  - action: utter_afkræft
