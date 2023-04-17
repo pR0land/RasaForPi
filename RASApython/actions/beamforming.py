@@ -6,69 +6,68 @@ from scipy.signal import fftconvolve
 mic_pos = np.array([[0, 0], [1, 0], [0, 1], [1, 1]])
 
 # Define constants for speed of sound and sampling frequency
-c = 343.0
-fs = 44100
+sound_speed = 343.0 # lydens hastighed i luft
+fs = 44100 # vores sampling frekvens
 
 # Define frequencies of desired signal, time window, and FFT size
-frequencies = np.arange(500, 1500, 100)
-t = np.linspace(0, 0.1, int(fs * 0.1))
-nfft = 2048
+frequencies = np.arange(500, 1500, 100) # eksempler på frekvenser som vi kigger efter i vores beregninger
+time_window = np.linspace(0, 0.1, int(fs * 0.1))
+fft_size = 2048 # vores sample rate i vores fast fourier transform
 
 # Define initial angle of user's voice
-theta = 0
+sound_origin_angle = 0
 
 
-# Define function for DOA estimation based on cross-correlation
-def doa_estimation(X):
+# Define function for DOA (Direction of Arrival) estimation based on cross-correlation
+def doa_estimation(sound_signals_matrix):
     # Compute cross-correlation matrix
-    R = np.dot(X, X.T.conj()) / X.shape[1]
+    cc_matrix = np.dot(sound_signals_matrix, sound_signals_matrix.T.conj()) / sound_signals_matrix.shape[1]
 
     # Compute eigenvalues and eigenvectors of cross-correlation matrix
-    eigvals, eigvecs = np.linalg.eig(R)
+    eig_vals, eig_vecs = np.linalg.eig(cc_matrix)
 
     # Sort eigenvalues in descending order and get corresponding eigenvectors
-    idx = eigvals.argsort()[::-1]
-    eigvals = eigvals[idx]
-    eigvecs = eigvecs[:, idx]
+    indices = eig_vals.argsort()[::-1]
+    eig_vals = eig_vals[indices]
+    eig_vecs = eig_vecs[:, indices]
 
     # Compute DOA as angle between first two eigenvectors
-    w = eigvecs[:, 0]
-    v = eigvecs[:, 1]
-    theta_est = np.angle(np.dot(w.T.conj(), v))
+    w = eig_vecs[:, 0]
+    v = eig_vecs[:, 1]
+    sound_origin_angle_estimate = np.angle(np.dot(w.T.conj(), v))
 
-    return theta_est
+    return sound_origin_angle_estimate
 
 
 # Define callback function for recording and beamforming
 def callback(indata, frames, time, status):
     # Extract recorded signal for each microphone
     # X = np.vstack((indata[:, 0], indata[:, 1], indata[:, 2], indata[:, 3])) # <----- Add when we have more microphones
-    X = np.vstack((indata[:, 0])) #                                          <----- Remove when we have more microphones
+    recorded_signal = np.vstack((indata[:, 0])) #                            <----- Remove when we have more microphones
 
     # Compute DOA estimation based on cross-correlation
-    theta_est = doa_estimation(X)
+    theta_est = doa_estimation(recorded_signal)
 
     # Update angle of user's voice
-    global theta
-    theta = theta_est * 180 / np.pi
-    print("Current angle:", theta)  # Add this line to print the angle
+    global sound_origin_angle
+    sound_origin_angle = theta_est * 180 / np.pi
+    print("Current angle:", sound_origin_angle)  # Add this line to print the angle
 
     # Compute beamformed signal for each microphone and sum the results
-    Y = np.zeros_like(X[0], dtype=np.complex64)
+    beamformer_output = np.zeros_like(recorded_signal[0], dtype=np.complex64)
     for i in range(len(mic_pos)):
         # Compute steering vector based on current frequency and updated angle
-        A = np.exp(-2j * np.pi * i / c * np.dot(mic_pos, np.array([np.cos(theta), np.sin(theta)])))
+        steering_vector = np.exp(-2j * np.pi * i / sound_speed * np.dot(mic_pos, np.array([np.cos(sound_origin_angle), np.sin(sound_origin_angle)])))
 
         # Compute beamformer weights based on current frequency and updated steering vector
-        w = np.conj(A) / np.dot(np.conj(A), A)
+        beamforming_weights = np.conj(steering_vector) / np.dot(np.conj(steering_vector), steering_vector)
 
         # Apply beamforming to recorded signals for current frequency
-        y = fftconvolve(w, X[i], mode='valid')[0]
-        Y += y
+        beamformed_signal = fftconvolve(beamforming_weights, recorded_signal[i], mode='valid')[0]
+        beamformer_output += beamformed_signal
 
     # Play back beamformed signal
-    sd.play(Y.real, samplerate=fs)
-
+    sd.play(beamformer_output.real, samplerate=fs)
 
 # Prints available sound devices
 print(sd.query_devices(device=None, kind=None))
