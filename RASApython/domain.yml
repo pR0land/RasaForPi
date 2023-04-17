@@ -1,63 +1,33 @@
 version: "3.1"
 
 intents:
-  - pause
-  - resume
-  - gentag
-  - uddyb
-  - what
-  - besvarelse_dårlig
-  - besvarelse_god
-  - afkræft
-  - bekræft
-  - stop
-  - vågn_op
+  - greet
   - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
   - bot_challenge
-  - spørgsmål
 
 responses:
   utter_greet:
-  - text: "Hej! Er du klar til at besvare spørgeskemaer?"
+  - text:  "Hej, hvordan har du det i dag?"
 
-  utter_besvarD:
-  - text: "Det er jeg ked af at høre, vil du uddybe hvorfor?"
+  utter_cheer_up:
+  - text: "Det er jeg ked af at høre. Her er et billede til at få dig i bedre humør:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
 
-  utter_besvarG:
-  - text: "Godt at høre, har du nogen tilføjelser?"
+  utter_did_that_help:
+  - text: "Hjalp det?"
 
-  utter_pause:
-  - text: "Jeg venter"
-
-  utter_resume:
-    - text: "Ok vi fortsætter"
-
-  utter_gentag:
-    - text: "Jeg gentager spørgsmålet"
-
-  utter_what:
-    - text: "Undskyld det forstod jeg ikke, kan du gentage?"
-
-  utter_uddyb:
-    - text: "Jeg uddyber spørgsmålet"
+  utter_happy:
+  - text: "Det er jeg glad for at høre!"
 
   utter_goodbye:
-  - text: "Farvel :)"
-
-  utter_spørgeskema:
-    - text: "Der er ... spørgeskema(er), i dag."
+  - text: "Farvel"
 
   utter_iamabot:
-  - text: "Jeg er en robot, lavet af Rasa."
-
-  utter_bekræft:
-    - text: "Godt!"
-
-  utter_afkræft:
-    - text: "OK"
-
-  utter_testSp:
-    - text: "Hvordan har du det?"
+  - text: "Jeg er en robot, lavet at Rasa"
 
 session_config:
   session_expiration_time: 60

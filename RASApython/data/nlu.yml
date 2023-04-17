@@ -1,113 +1,37 @@
 version: "3.1"
 
 nlu:
-- intent: vågn_op
+- intent: greet
   examples: |
     - hej
-    - sesam
-    - goddag
-    - hejhej
-    - hej hej
-    - hej du
-    - godmorgen
-    - god eftermiddag
-    - godaften
-    - møjn
-    - sesam vågn op
-    - snak
-    - vågn op
-    - let's go
+    - hello
 
-- intent: stop
+- intent: goodbye
   examples: |
-    - ses
-    - stop
     - farvel
-    - snakkes senere
-    - godnat
-    - tak for i dag
-    - hav det godt
+    - ses
 
-- intent: bekræft
+- intent: affirm
   examples: |
     - ja
-    - yes
-    - perfekt
-    - super
-    - selvfølgelig
-    - lyder godt
-    - korrekt
+    - ok
 
-- intent: afkræft
+- intent: deny
   examples: |
     - nej
-    - næh
-    - aldrig
-    - det tror jeg ikke
-    - det kan jeg ikke lide
-    - ikke rigtigt
+    - forkert
 
-- intent: besvarelse_god
+- intent: mood_great
   examples: |
     - perfekt
     - godt
-    - fedt
-    - har det godt
-    - dejligt
-    - jeg har det godt
-    - jeg har det ok
-    - jeg har det super
-    - meget godt
-    - helt perfekt
-    - virkelig godt
-    - så perfekt
-    - jeg er glad
 
-- intent: besvarelse_dårlig
+- intent: mood_unhappy
   examples: |
-    - har haft en lorte dag
-    - jeg er ked af det
     - ked af det
-    - jeg har det ikke så godt
-    - jeg har det ikke godt
-    - jeg er sur
-    - jeg er skuffet
-    - meget ked af det
-    - trist
-    - deprimeret
+    - dårligt
 
 - intent: bot_challenge
   examples: |
     - er du en robot?
     - er du et menneske?
-    - snakker jeg med en robot?
-    - snakker jeg med et menneske?
-
-- intent: what
-  examples: |
-    - qwe
-    - wew
-    - giver ingen mening
-    - sludder
-
-- intent: uddyb
-  examples: |
-    - kan du uddybe spørgsmålet?
-
-- intent: gentag
-  examples: |
-    - kan du gentage spørgsmålet
-    - jeg hørte det ikke
-    - jeg forstår ikke
-
-- intent: resume
-  examples: |
-    - ok forstæt
-    - fortsæt
-    - gå videre
-
-- intent: pause
-  examples: |
-    - vent
-    - vent lige
-    - pause
