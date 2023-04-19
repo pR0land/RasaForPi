@@ -1,0 +1,95 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hej
+    - hej Sesam
+    - goddag
+    - godmorgen
+    - godaften
+    - halløj
+    - hejsa
+    - halløjsa
+
+- intent: bye
+  examples: |
+    - farvel
+    - ses
+    - farvel og tak
+
+- intent: affirm
+  examples: |
+    - ja
+    - absolut
+    - selvfølgelig
+    - naturligvis
+    - jeps
+    - yep
+    - jep
+    - yeps
+    - præcis
+    - klart
+    - helt klart
+    - godt nok
+    - udemærket
+    - det passer
+    - det kan jeg godt
+    - ingen problemer
+    - ok
+    - det er rigtigt
+    - rigtigt
+    - korrekt
+
+- intent: deny
+  examples: |
+    - nej
+    - forkert
+    - ikke rigtigt
+    - desværre ikke
+    - tværtimod 
+    - næh
+    - næ
+    - bestemt ikke
+    - slet ikke
+    - ikke sådan lige
+    - det er ikke muligt
+    - det kan jeg ikke
+
+- intent: mood_great
+  examples: |
+    - perfekt
+    - godt
+    - dejligt
+    - glad
+    - jeg har det godt
+    - jeg har det dejligt
+    - jeg har det perfekt
+    - jeg er glad
+
+- intent: mood_unhappy
+  examples: |
+    - ked af det
+    - dårligt
+    - trist
+    - sur
+    - træt
+    - jeg er ked af det
+    - jeg er trist
+    - jeg har det skridt
+    - jeg har det dårligt
+    - jeg er sur
+    - jeg er træt
+
+- intent: uddyb
+  examples: | 
+    - hvad mener du?
+    - jeg forstår ikke helt
+    - kan du uddybe?
+
+- intent: bot_challenge
+  examples: |
+    - er du en robot?
+    - er du et menneske?
+    - taler jeg med en robot?
+    - taler jeg med et menneske?
