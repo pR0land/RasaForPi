@@ -2,1160 +2,266 @@ version: "3.1"
 
 stories:
 
-- story: mrs0, -uddyb
+- story: greeting
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_firstquestion2
-  - intent: deny
-  - action: utter_mrs0
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - intent: greet
+    - action: utter_greet
 
-- story: mrs1 path only yes, -uddyb
+- story: forklaring1
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_firstquestion2
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_liketodo
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs1
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_greet #0
+    - intent: forklaring
+    - action: utter_forklarRankin #1
+    - action: utter_inQuestion #2
+    - action: utter_1stQuestion #3
 
-- story: mrs1 path only yes, +uddyb
+- story: startSpørgsmål
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: uddyb
-  - action: utter_uddybrankin
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: uddyb
-  - action: utter_uddybfirst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_firstquestion2
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: uddyb
-  - action: utter_uddybsecond
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_liketodo
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs1
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_greet #0
+    - intent: klar
+    - action: utter_inQuestion #2
+    - action: utter_1stQuestion #3
 
-- story: mrs1 path with no, -uddyb
+- story: 1stJa
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_greetbad
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestionno
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion2
-  - intent: deny
-  - action: utter_liketodo
-  - intent: affirm
-  - action: utter_mrs1
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_1stQuestion #3
+    - intent: affirm
+    - action: utter_2ndQuestion #4
 
-- story: mrs1 path with no, +uddyb
+- story: 1stNej
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_greetbad
-  - action: utter_readyforquestions
-  - intent: uddyb
-  - action: utter_uddybrankin
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: uddyb
-  - action: utter_uddybfirst
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: uddyb
-  - action: utter_uddybsecond
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestionno
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion2
-  - intent: deny
-  - action: utter_liketodo
-  - intent: affirm
-  - action: utter_mrs1
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_2ndQuestion #4
+    - intent: deny
+    - action: utter_3rdQuestion #6
 
-- story: mrs2 path yes, -uddyb
+- story: 1stForklarJa
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_firstquestion2
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_liketodo
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs2
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_1stQuestion #3
+    - intent: forklaring
+    - action: utter_forklar1st #7
+    - intent: affirm
+    - action: utter_2ndQuestion #4
 
-- story: mrs2 path no1, -uddyb
+- story: 1stForklarNej
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_liketodo
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs2
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_1stQuestion #3
+    - intent: forklaring
+    - action: utter_forklar1st #7
+    - intent: deny
+    - action: utter_3rdQuestion #6
 
-- story: mrs2 path no2, -uddyb
+- story: 2ndNej
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestionno
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_liketodo
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs2
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_2ndQuestion #4
+    - intent: deny
+    - action: utter_mrs0 #5
 
-- story: mrs2 path no3, -uddyb
+- story: 2ndJa
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestionno
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion2
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs2
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_2ndQuestion #4
+    - intent: affirm
+    - action: utter_3rdQuestion #6
 
-- story: mrs2 path no4, -uddyb
+- story: 3rdForklarNej
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestionno
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion2
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_liketodo
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs2
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_3rdQuestion #6
+    - intent: forklaring
+    - action: utter_forklar3rd #8
+    - intent: deny
+    - action: utter_8thQuestion #14
 
-- story: mrs2 path no5, -uddyb
+- story: 3rdForklarJa
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestionno
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs2
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_3rdQuestion #6
+    - intent: forklaring
+    - action: utter_forklar3rd #8
+    - intent: affirm
+    - action: utter_4thQuestion #9
 
-- story: mrs2 path no6, -uddyb
+- story: 3rdJa
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs2
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_3rdQuestion #6
+    - intent: affirm
+    - action: utter_4thQuestion #9
 
-- story: mrs3 path 1, -uddyb
+- story: 3rdNej
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_firstquestion2
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_liketodo
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fifthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs3
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_3rdQuestion #6
+    - intent: deny
+    - action: utter_8thQuestion #14
 
-- story: mrs3 path 2, -uddyb
+- story: 4thJa
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_liketodo
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fifthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs3
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_4thQuestion #9
+    - intent: affirm
+    - action: utter_5thQuestion #10
 
-- story: mrs3 path 3, -uddyb
+- story: 4thNej
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestionno
-  - intent: deny
-  - action: utter_familyquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_liketodo
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fifthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs3
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_4thQuestion #9
+    - intent: deny
+    - action: utter_6thQuestion #11
 
-- story: mrs3 path 4, -uddyb
+- story: 5thJa
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestionno
-  - intent: deny
-  - action: utter_familyquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion2
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_liketodo
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fifthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs3
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_5thQuestion #10
+    - intent: affirm
+    - action: utter_7thQuestion #12
 
-- story: mrs3 path 5, -uddyb
+- story: 5thNej
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestionno
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fifthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs3
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_5thQuestion #10
+    - intent: deny
+    - action: utter_6thQuestion #11
 
-- story: mrs3 path 6, -uddyb
+- story: 6thNej
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_firstquestion2
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion2
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fifthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs3
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_6thQuestion #11
+    - intent: deny
+    - action: utter_7thQuestion #12
 
-
-
-- story: mrs3 path 7, -uddyb
+- story: 6thJa
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_madlavning
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_huspligter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkøbscenter
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_indkomst
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_offenligtransport
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fifthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs3
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_6thQuestion #11
+    - intent: affirm
+    - action: utter_8thQuestion #14
 
-- story: mrs3 path 8, -uddyb
+- story: 7thJa
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fifthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs3
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_7thQuestion #12
+    - intent: affirm
+    - action: utter_mrs1 #13
 
-- story: mrs3 path 9, -uddyb
+- story: 7thNej
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestionno
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fifthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs3
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_7thQuestion #12
+    - intent: deny
+    - action: utter_8thQuestion #14
 
-- story: mrs3 path 6, -uddyb
+- story: 8thForklarJa
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_firstquestion2
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_secondquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_thirdquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_familyquestion2
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fourthquestion
-  - intent: deny
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_fifthquestion
-  - intent: affirm
-  - action: utter_iheard
-  - intent: affirm
-  - action: utter_mrs3
-  - action: utter_finished
-  - intent: deny
-  - action: utter_bye
+    - action: utter_8thQuestion #14
+    - intent: forklaring
+    - action: utter_forklar8th #15
+    - intent: affirm
+    - action: utter_9thQuestion #16
 
-- story: mrs3 path 10, -uddyb
+- story: 8thForklarNej
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_greetgood
-  - action: utter_readyforquestions
-  - intent: affirm
-  - action: utter_inquestion
-  - action: utter_firstquestion
+    - action: utter_8thQuestion #14
+    - intent: forklaring
+    - action: utter_forklar8th #15
+    - intent: deny
+    - action: utter_14thQuestion #22
 
+- story: 8thJa
+  steps:
+    - action: utter_8thQuestion #14
+    - intent: affirm
+    - action: utter_9thQuestion #16
 
-- story: uddyb alt
+- story: 8thNej
+  steps:
+    - action: utter_8thQuestion #14
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 9thJa
+  steps:
+    - action: utter_9thQuestion #16
+    - intent: affirm
+    - action: utter_10thQuestion #17
+
+- story: 9thNej
+  steps:
+    - action: utter_9thQuestion #16
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 10thJa
+  steps:
+    - action: utter_10thQuestion #17
+    - intent: affirm
+    - action: utter_11thQuestion #18
+
+- story: 10thNej
+  steps:
+    - action: utter_10thQuestion #17
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 11thJa
+  steps:
+    - action: utter_11thQuestion #18
+    - intent: affirm
+    - action: utter_12thQuestion #19
+
+- story: 11thNej
+  steps:
+    - action: utter_11thQuestion #18
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 12thJa
+  steps:
+    - action: utter_12thQuestion #19
+    - intent: affirm
+    - action: utter_13thQuestion #20
+
+- story: 12thNej
+  steps:
+    - action: utter_12thQuestion #19
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 13thJa
+  steps:
+    - action: utter_13thQuestion #20
+    - intent: affirm
+    - action: utter_mrs2 #21
+
+- story: 13thNej
+  steps:
+    - action: utter_13thQuestion #20
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 14thForklarJa
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: forklaring
+    - action: utter_forklar14th #23
+    - intent: affirm
+    - action: utter_mrs3 #25
+
+- story: 14thForklarNej
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: forklaring
+    - action: utter_forklar14th #23
+    - intent: deny
+    - action: utter_15thQuestion #24
+
+- story: 14thJa
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: affirm
+    - action: utter_mrs3 #25
+
+- story: 14thForklarNej
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: deny
+    - action: utter_15thQuestion #24
+
+- story: 15thJa
+  steps:
+    - action: utter_15thQuestion #24
+    - intent: affirm
+    - action: utter_mrs3 #25
+
+- story: 15thNej
+  steps:
+    - action: utter_15thQuestion #24
+    - intent: deny
+    - action: utter_mrs4 #26

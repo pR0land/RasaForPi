@@ -1,7 +1,7 @@
 version: "3.1"
 
 nlu:
-- intent: greet
+- intent: greeting
   examples: |
     - hej
     - hej Sesam
@@ -12,15 +12,28 @@ nlu:
     - hejsa
     - halløjsa
 
-- intent: bye
-  examples: |
-    - farvel
-    - ses
-    - farvel og tak
+- intent: forklaring
+  examples:
+    - jeg vil gerne have spørgsmålet uddybet
+    - jeg vil gerne have en forklaring
+    - forklar
+    - uddyb
+    - forstår ikke
+    - kan ud uddybe spørgsmålet?
+
+- intent: klar
+  examples:
+    - jeg er klar til at besvare spørgsmålene
+    - jeg vil gerne besvare
+    - besvare
+    - spørgsmål
+    - første spørgsmål
 
 - intent: affirm
   examples: |
     - ja
+    - ja det gør jeg
+    - ja det er jeg
     - absolut
     - selvfølgelig
     - naturligvis
@@ -56,36 +69,11 @@ nlu:
     - det er ikke muligt
     - det kan jeg ikke
 
-- intent: mood_great
+- intent: bye
   examples: |
-    - perfekt
-    - godt
-    - dejligt
-    - glad
-    - jeg har det godt
-    - jeg har det dejligt
-    - jeg har det perfekt
-    - jeg er glad
-
-- intent: mood_unhappy
-  examples: |
-    - ked af det
-    - dårligt
-    - trist
-    - sur
-    - træt
-    - jeg er ked af det
-    - jeg er trist
-    - jeg har det skridt
-    - jeg har det dårligt
-    - jeg er sur
-    - jeg er træt
-
-- intent: uddyb
-  examples: | 
-    - hvad mener du?
-    - jeg forstår ikke helt
-    - kan du uddybe?
+    - farvel
+    - ses
+    - farvel og tak
 
 - intent: bot_challenge
   examples: |
