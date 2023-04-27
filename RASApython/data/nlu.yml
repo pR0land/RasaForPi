@@ -28,6 +28,7 @@ nlu:
     - besvare
     - spørgsmål
     - første spørgsmål
+    - klar
 
 - intent: affirm
   examples: |

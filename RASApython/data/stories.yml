@@ -30,7 +30,7 @@ stories:
 
 - story: 1stNej
   steps:
-    - action: utter_2ndQuestion #4
+    - action: utter_1stQuestion #4
     - intent: deny
     - action: utter_3rdQuestion #6
 
