@@ -13,7 +13,7 @@ nlu:
     - halløjsa
 
 - intent: forklaring
-  examples:
+  examples: |
     - jeg vil gerne have spørgsmålet uddybet
     - jeg vil gerne have en forklaring
     - forklar
@@ -22,7 +22,7 @@ nlu:
     - kan ud uddybe spørgsmålet?
 
 - intent: klar
-  examples:
+  examples: |
     - jeg er klar til at besvare spørgsmålene
     - jeg vil gerne besvare
     - besvare

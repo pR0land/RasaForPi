@@ -4,7 +4,7 @@ stories:
 
 - story: greeting
   steps:
-    - intent: greet
+    - intent: greeting
     - action: utter_greet
 
 - story: forklaring1
