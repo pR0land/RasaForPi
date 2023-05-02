@@ -21,6 +21,7 @@ nlu:
     - uddyb
     - forstår ikke
     - kan ud uddybe spørgsmålet?
+    - hvad betyder det
 
 - intent: klar
   examples: |
@@ -30,6 +31,7 @@ nlu:
     - spørgsmål
     - første spørgsmål
     - klar
+    - jeg er klar
 
 - intent: affirm
   examples: |
@@ -54,7 +56,24 @@ nlu:
     - ok
     - det er rigtigt
     - rigtigt
+    - okay
     - korrekt
+    - hvis det kun er enkelte ting
+    - det vil jeg sige
+    - jeg kan selv
+    - jeg klare det hele selv
+    - ja med stok
+    - ja med rollator
+    - næsten
+    - jaer
+    - yeah
+    - det kan jeg også
+    - det kan jeg også godt
+    - ja når jeg har min bil
+    - køre i egen bil
+    - jeg kan ringe til taxa
+    - jeg kan tage bus
+    - jeg kan tage tog
 
 - intent: deny
   examples: |
@@ -70,6 +89,21 @@ nlu:
     - ikke sådan lige
     - det er ikke muligt
     - det kan jeg ikke
+    - nej det er jeg ikke
+    - ikke fuldt ud
+
+- intent: gentag
+  examples: |
+    - gentag
+    - Kan du gentage
+    - jeg vil gerne have den en gang til
+    - en gang mere
+    - hørte det ikke
+    - Undskyld kan du gentage hvad du sagde
+    - er ikke helt sikker på jeg hørte det
+    - fangede det ikke
+    - kan du sige det igen
+    - jeg missede det
 
 - intent: bye
   examples: |

@@ -9,13 +9,14 @@ intents:
   - bye
   - bot_challenge
   - uddyb
+  - gentag
 
 responses: #0
   utter_greet:
-  - text:  "Hej! Jeg vil gerne hjælpe dig med at bestemme din modified Rankin Score, gennem nogle spørgsmål. Vil du have en forklaring af the modified Rankin Score eller er du klar til at besvare første spørgsmål?"
+  - text:  "Hej! Jeg vil gerne hjælpe dig med at bestemme din genoptrænings-score, gennem nogle spørgsmål. Vil du have en forklaring af hvad genoptrænings-scoren er eller er du klar til at besvare første spørgsmål?"
 
   utter_forklarRankin: #1
-    - text: "The modified Rankin Scale vurderer effekten af stroke på dit daglige liv. At bestemme din Rankin-score på forskellige punkter I dit forløb hjælper med at måle dine fremskridt."
+    - text: "Din genoptrænings-score vurderer effekten af stroke på dit daglige liv, altså i hvor høj en grad man er i stand til at tage vare på sit eget liv. At bestemme din genoptrænings-score på forskellige punkter I dit forløb hjælper med at måle dine fremskridt."
 
   utter_inQuestion: #2
   - text: "Jeg vil gerne tale om ting, du var I stand til at gøre før dit stroke, og om stroket har ændret din evne til at gøre dem nu. Disse spørgsmål handler om din evne til at gøre ting, ikke om du kan lide eller vil gøre dem."
