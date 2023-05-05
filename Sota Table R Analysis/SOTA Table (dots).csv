@@ -28,7 +28,7 @@ Cartwright A.;\cite{cartwright1968variations};96;Printed;1;6;-;3;10;-;None;None;
 Cartwright A.;\cite{cartwright1968variations};83;Printed;1;6;-;3;10;-;None;None;;n/a;Physician;-
 Cartwright A.;\cite{cartwright1968variations};78;Printed;3;40;-;3;10;-;None;None;;n/a;Physician;-
 Cartwright A.;\cite{cartwright1968variations};67;Printed;3;40;-;3;10;-;None;None;;n/a;Physician;-
-del Valle M.;\cite{del1997randomized};65.9;Printed;6;-;-;2;-;-;45;Monetary;;"Before; After";Physician;-
+del Valle M.;\cite{del1997randomized};65.9;Printed;6;-;-;2;-;-;45;Monetary;;Before/After;Physician;-
 del Valle M.;\cite{del1997randomized};41.3;Printed;6;-;-;3;-;-;None;None;;n/a;Physician;-
 del Valle M.;\cite{del1997randomized};24.8;Printed;6;-;-;3;-;-;None;None;;n/a;Physician;-
 Donaldson G. W.;\cite{donaldson1999physician};48;Printed;-;-;5;1;28;-;None;None;;n/a;Physician;-
@@ -39,10 +39,10 @@ Dykema J.;\cite{dykema2011effects};3;Website;-;80;-;3;-;-;None;None;;n/a;Physici
 Dykema J.;\cite{dykema2011effects};6.2;Website;-;80;-;3;-;-;2;Monetary;;Before;Physician;Notified
 Dykema J.;\cite{dykema2011effects};6.2;Website;-;80;-;3;-;-;None;None;;n/a;Physician;Notified
 Dykema J.;\cite{dykema2011effects};6.6;Website;-;80;-;3;-;-;Lottery;Lottery;200;n/a;Physician;Notified
-Dykema J.;\cite{dykema2011effects};8.6;Website;-;80;-;3;-;-;"2; Lottery";"Monetary; Lottery";200;Before;Physician;Notified
+Dykema J.;\cite{dykema2011effects};8.6;Website;-;80;-;3;-;-;2/Lottery;Monetary/Lottery;200;Before;Physician;Notified
 Dykema J.;\cite{dykema2011effects};13.4;Website;-;80;-;3;-;-;50;Monetary;;After;Physician;Notified
-Dykema J.;\cite{dykema2011effects};15.4;Website;-;80;-;3;-;-;"2; 50";Monetary;;"Before; After";Physician;Notified
-Dykema J.;\cite{dykema2011effects};25.4;Website;-;80;-;3;-;-;"2; 100";Monetary;;"Before; After";Physician;Notified
+Dykema J.;\cite{dykema2011effects};15.4;Website;-;80;-;3;-;-;2/50;Monetary;;Before/After;Physician;Notified
+Dykema J.;\cite{dykema2011effects};25.4;Website;-;80;-;3;-;-;2/100;Monetary;;Before/After;Physician;Notified
 Everett S. A.;\cite{everett1997effect};62.8;Printed;3;27;-;2;14;-;1;Monetary;;-;Care Physician;-
 Everett S. A.;\cite{everett1997effect};45.4;Printed;3;27;-;2;14;-;None;None;;n/a;Physician;-
 Gattellari M.;\cite{gattellari2001will};84.3;Printed;13;-;-;4;30;-;NM;NM;;After;Surgeon;-
@@ -104,11 +104,11 @@ Puleo E.;\cite{puleo2002caffeine};66.9;Printed;3;-;-;2;14;-;4;Monetary;;Before;P
 Puleo E.;\cite{puleo2002caffeine};81.6;Mixed;3;-;-;3;14;-;4;Monetary;;Before;Physician;Non-respondent
 Recklitis C. J.;\cite{recklitis2009money};81.6;Mixed;-;-;-;1;14;-;20;Monetary;;Before;Physician;-
 Recklitis C. J.;\cite{recklitis2009money};63;Mixed;-;-;-;1;14;-;NM;NM;;Before;Physician;-
-Recklitis C. J.;\cite{recklitis2009money};76.3;Mixed;-;-;-;1;14;-;"20; NM";"Monetary; NM";;Before;Physician;-
+Recklitis C. J.;\cite{recklitis2009money};76.3;Mixed;-;-;-;1;14;-;20/NM;Monetary/NM;;Before;Physician;-
 Thorpe C.;\cite{thorpe2009obtain};48.1;Printed;-;-;-;3;21;Closed-response;None;None;;n/a;Physician;-
 Thorpe C.;\cite{thorpe2009obtain};76.2;Printed;-;-;-;3;-;Closed-response;25;Monetary;;Before;Physician;Non-respondents
-Thorpe C.;\cite{thorpe2009obtain};73.5;Printed;-;-;-;3;-;"Open-response; Closed-response";25;Monetary;;Before;Physician;-
-Thorpe C.;\cite{thorpe2009obtain};73.5;Printed;-;-;-;3;-;"Open-response; Closed-response";25;Monetary;;Before;Physician;-
+Thorpe C.;\cite{thorpe2009obtain};73.5;Printed;-;-;-;3;-;Open-response/Closed-response;25;Monetary;;Before;Physician;-
+Thorpe C.;\cite{thorpe2009obtain};73.5;Printed;-;-;-;3;-;Open-response/Closed-response;25;Monetary;;Before;Physician;-
 Ulrich C. M.;\cite{ulrich2005does};48.1;Printed;-;-;-;3;-;-;None;None;;n/a;Nurse;None
 Ulrich C. M.;\cite{ulrich2005does};36.3;Printed;-;-;-;3;-;-;None;None;;n/a;Physician aid;None
 Ulrich C. M.;\cite{ulrich2005does};48.7;Printed;-;-;-;3;-;-;Lottery;Lottery;100;n/a;Nurse;None
@@ -118,15 +118,15 @@ Ulrich C. M.;\cite{ulrich2005does};58.7;Printed;-;-;-;3;-;-;5;Monetary;;Before;P
 VanGeest J. B.;\cite{vangeest2001effects};60.3;Printed;4;21;-;3;-;Closed-response;5;Monetary;;Before;Physician;-
 VanGeest J. B.;\cite{vangeest2001effects};68;Printed;-;-;-;3;-;Closed-response;10;Monetary;;Before;Physician;-
 VanGeest J. B.;\cite{vangeest2001effects};65.2;Printed;-;-;-;3;-;Closed-response;20;Monetary;;Before;Physician;-
-Viera A. J.;\cite{viera2012does};12;Mixed;-;40;10;2;14;-;"Lottery; NM";"Lottery; NM";500;After;Physician;-
+Viera A. J.;\cite{viera2012does};12;Mixed;-;40;10;2;14;-;Lottery/NM;Lottery/NM;500;After;Physician;-
 Viera A. J.;\cite{viera2012does};16.6;Mixed;-;40;10;2;14;-;Lottery;Lottery;500;After;Physician;-
 VonRiesen R. D.;\cite{vonriesen1979postcard};41.9;Printed;2;-;-;1;8;-;None;None;;n/a;Veterinarian;-
 VonRiesen R. D.;\cite{vonriesen1979postcard};50;Printed;2;-;-;1;8;-;None;None;;n/a;Veterinarian;-
 VonRiesen R. D.;\cite{vonriesen1979postcard};39.5;Printed;-;-;-;0;n/a;-;None;None;;n/a;Veterinarian;-
-Wilson P. M.;\cite{wilson2010effects};50;Website;-;36;25;3;7;"Open-response; Closed-response";10;Monetary;;After;Researcher;-
-Wilson P. M.;\cite{wilson2010effects};45.6;Website;-;36;25;3;7;"Open-response; Closed-response";None;None;;n/a;Researcher;-
-Ziegenfuss J. Y.;\cite{ziegenfuss2012getting};14.2;Printed;8;-;-;1;42;Likert scale;"NM; 25";"NM; Monetary";;"Before; After";Physician;-
-Ziegenfuss J. Y.;\cite{ziegenfuss2012getting};15.9;Printed;8;-;-;1;42;Likert scale;"NM; 25";"NM; Monetary";;"Before; After";Physician;-
+Wilson P. M.;\cite{wilson2010effects};50;Website;-;36;25;3;7;Open-response/Closed-response;10;Monetary;;After;Researcher;-
+Wilson P. M.;\cite{wilson2010effects};45.6;Website;-;36;25;3;7;Open-response/Closed-response;None;None;;n/a;Researcher;-
+Ziegenfuss J. Y.;\cite{ziegenfuss2012getting};14.2;Printed;8;-;-;1;42;Likert scale;NM/25;NM/Monetary;;Before/After;Physician;-
+Ziegenfuss J. Y.;\cite{ziegenfuss2012getting};15.9;Printed;8;-;-;1;42;Likert scale;NM/25;NM/Monetary;;Before/After;Physician;-
 Hardigan P. C. et al.;\cite{HARDIGAN2016141};22.6;Printed;4;60;-;2;14;-;None;None;;n/a;Pharmacist;-
 Hardigan P. C. et al.;\cite{HARDIGAN2016141};19.3;Printed;2;36;-;2;14;-;None;None;;n/a;Pharmacist;-
 Hardigan P. C. et al.;\cite{HARDIGAN2016141};6.4;Website;4;60;-;2;14;-;None;None;;n/a;Pharmacist;-
