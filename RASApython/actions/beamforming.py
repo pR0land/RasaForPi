@@ -24,7 +24,7 @@ def doa_estimation(sound_signals_matrix):
     cc_matrix = np.dot(sound_signals_matrix, sound_signals_matrix.T.conj()) / sound_signals_matrix.shape[1]
 
     # Compute eigenvalues and eigenvectors of cross-correlation matrix
-    eig_vals, eig_vecs = np.linalg.eig(cc_matrix)
+    eig_vals, eig_vecs = np.linalg.eigh(cc_matrix)
 
     # Sort eigenvalues in descending order and get corresponding eigenvectors
     indices = eig_vals.argsort()[::-1]
@@ -42,11 +42,11 @@ def doa_estimation(sound_signals_matrix):
 # Define callback function for recording and beamforming
 def callback(indata, frames, time, status):
     # Extract recorded signal for each microphone
-    # X = np.vstack((indata[:, 0], indata[:, 1], indata[:, 2], indata[:, 3])) # <----- Add when we have more microphones
-    recorded_signal = np.vstack((indata[:, 0])) #                            <----- Remove when we have more microphones
+    X = np.vstack((indata[:, 0], indata[:, 1], indata[:, 2], indata[:, 3])) # <----- Add when we have more microphones
+    # recorded_signal = np.vstack((indata[:, 0])) #                            <----- Remove when we have more microphones
 
     # Compute DOA estimation based on cross-correlation
-    theta_est = doa_estimation(recorded_signal)
+    theta_est = doa_estimation(X)
 
     # Update angle of user's voice
     global sound_origin_angle
@@ -54,7 +54,7 @@ def callback(indata, frames, time, status):
     print("Current angle:", sound_origin_angle)  # Add this line to print the angle
 
     # Compute beamformed signal for each microphone and sum the results
-    beamformer_output = np.zeros_like(recorded_signal[0], dtype=np.complex64)
+    beamformer_output = np.zeros_like(X[0], dtype=np.complex64)
     for i in range(len(mic_pos)):
         # Compute steering vector based on current frequency and updated angle
         steering_vector = np.exp(-2j * np.pi * i / sound_speed * np.dot(mic_pos, np.array([np.cos(sound_origin_angle), np.sin(sound_origin_angle)])))
@@ -63,15 +63,15 @@ def callback(indata, frames, time, status):
         beamforming_weights = np.conj(steering_vector) / np.dot(np.conj(steering_vector), steering_vector)
 
         # Apply beamforming to recorded signals for current frequency
-        beamformed_signal = fftconvolve(beamforming_weights, recorded_signal[i], mode='valid')[0]
+        beamformed_signal = fftconvolve(beamforming_weights, X[i], mode='valid')[0]
         beamformer_output += beamformed_signal
 
     # Play back beamformed signal
     sd.play(beamformer_output.real, samplerate=fs)
 
 # Prints available sound devices
-print(sd.query_devices(device=None, kind=None))
+print(sd.query_devices())
 
 # Start recording and beamforming
-with sd.InputStream(channels=1, blocksize=2048, samplerate=fs, callback=callback):
-    sd.sleep(123456789)
+with sd.InputStream(channels=4, blocksize=2048, samplerate=fs, callback=callback):
+    sd.sleep(69420)
