@@ -14,6 +14,6 @@ sota$`Incentive Type` <- factor(sota$`Incentive Type`, levels = incentive_types_
 sota$`Time of payment` <- factor(sota$`Time of payment`, levels = time_of_payment_factor)
 sota$Priorconcent <- factor(sota$Priorconcent, levels = prior_concent_factor)
 
-  # You dataset is now correctly formattet and called "sota".
+  # You dataset is now correctly formatted and called "sota".
 
 ################################################################################
