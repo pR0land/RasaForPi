@@ -30,5 +30,32 @@ sota2$Priorconcent <- factor(sota2$Priorconcent, levels = prior_concent_factor)
 
 sota <- SOTA_Table_dots_
   # Swap out "Pages" with specific column
-empty <- which(is.na(sota$Pages))
+empty <- which(is.na(sota$Priorconcent))
 sota <- sota[-empty, ]
+
+ggplot(data = sota, aes(x = Priorconcent, y = RR)) +
+  geom_point() +
+  stat_summary(fun.y = "mean", geom = "line", aes(group = 1)) +
+  labs(x = "Priorconcent", y = "RR")
+
+
+########## PRIKDIAGRAM ##########
+
+  # omdøb "XXXX" i: x = XXXX, til den kolonne du gerne vil teste på
+  # husk at importere "ggplot2" og at vinge den af i packages
+
+ggplot(data = sota, aes(x = Priorconcent, y = RR)) +
+  geom_point() +
+  stat_summary(fun.y = "mean", geom = "line", aes(group = 1)) +
+  labs(x = "Priorconcent", y = "RR")
+
+
+########## BOKSPLOT ##########
+
+  # omdøb "XXXX" i: x = XXXX, til den kolonne du gerne vil teste på
+  # husk at importere "ggplot2" og at vinge den af i packages
+
+ggplot(data = sota, aes(x = Priorconcent, y = RR)) +
+  geom_boxplot() +
+  stat_summary(fun.y = "mean", geom = "line", aes(group = 1)) +
+  labs(x = "Priorconcent", y = "RR")
