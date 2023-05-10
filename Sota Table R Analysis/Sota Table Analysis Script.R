@@ -16,25 +16,25 @@ save(medium_factor, complexity_factor, incentive_types_factor, time_of_payment_f
   # Remember to "Set working directory" to the right folder. Then run this:
   # ( Mark it all and press CTRL+ENTER )
 
-sota2 <- SOTA_Table
+sota <- SOTA_Table_dots_2
 load("factor_levels.Rdata")
-sota2$Medium <- factor(sota2$Medium, levels = medium_factor)
-sota2$Complexity <- factor(sota2$Complexity, levels = complexity_factor)
-sota2$`Incentive Type` <- factor(sota2$`Incentive Type`, levels = incentive_types_factor)
-sota2$`Time of payment` <- factor(sota2$`Time of payment`, levels = time_of_payment_factor)
-sota2$Priorconcent <- factor(sota2$Priorconcent, levels = prior_concent_factor)
+sota$Medium <- factor(SOTA_Table_dots_2$Medium, levels = medium_factor)
+sota$Complexity <- factor(SOTA_Table_dots_2$Complexity, levels = complexity_factor)
+sota$`Incentive Type` <- factor(SOTA_Table_dots_2$`Incentive Type`, levels = incentive_types_factor)
+sota$`Time of payment` <- factor(SOTA_Table_dots_2$`Time of payment`, levels = time_of_payment_factor)
+sota$Priorconcent <- factor(SOTA_Table_dots_2$Priorconcent, levels = prior_concent_factor)
 
   # You dataset is now correctly formatted and called "sota".
 
 ################################################################################
 
-sota <- SOTA_Table_dots_
+library(ggplot2)
   # Swap out "Pages" with specific column
 empty <- which(is.na(sota$Priorconcent))
 sota <- sota[-empty, ]
 
 ggplot(data = sota, aes(x = Priorconcent, y = RR)) +
-  geom_point() +
+  geom_boxplot() +
   stat_summary(fun.y = "mean", geom = "line", aes(group = 1)) +
   labs(x = "Priorconcent", y = "RR")
 
@@ -45,10 +45,11 @@ ggplot(data = sota, aes(x = Priorconcent, y = RR)) +
   # husk at importere "ggplot2" og at vinge den af i packages
 
 ggplot(data = sota, aes(x = Priorconcent, y = RR)) +
-  geom_point() +
-  stat_summary(fun.y = "mean", geom = "line", aes(group = 1)) +
+  geom_boxplot() +
+  #stat_summary(fun.y = "mean", geom = "line", aes(group = 1)) +
   labs(x = "Priorconcent", y = "RR")
-
+my_agg <- aggregate(sota$RR, by = list(sota$Priorconcent), FUN = function(x) c(mean = mean(x), sd = sd(x), N = length(x)))
+my_agg
 
 ########## BOKSPLOT ##########
 
