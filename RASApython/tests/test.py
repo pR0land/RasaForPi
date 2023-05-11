@@ -27,7 +27,7 @@ def VArecord():
     r = sr.Recognizer()  # initialize recognizer
     with my_mic as source:  # mention source it will be either Microphone or audio files.
         print("Sig noget:")
-       #r.energy_threshold = 4000 #threshold for sound picked up - incase of problems
+        #r.energy_threshold = 4000 #threshold for sound picked up - incase of problems
         r.adjust_for_ambient_noise(my_mic, duration=0.5)
         try:
             audio = r.listen(source, timeout=5)  # listen to the source
