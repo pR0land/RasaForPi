@@ -4,6 +4,8 @@ nlu:
 - intent: greeting
   examples: |
     - hello
+    - hi
+    - hey
     - hej
     - hej Sesam
     - goddag
@@ -15,6 +17,9 @@ nlu:
 
 - intent: forklaring
   examples: |
+    - explanation
+    - i would like an explanation
+    - please explain
     - jeg vil gerne have spørgsmålet uddybet
     - jeg vil gerne have en forklaring
     - forklar
@@ -25,6 +30,10 @@ nlu:
 
 - intent: klar
   examples: |
+    - ready for questions
+    - i am ready
+    - questions
+    - answer questions
     - jeg er klar til at besvare spørgsmålene
     - jeg vil gerne besvare
     - besvare
@@ -36,12 +45,16 @@ nlu:
 - intent: affirm
   examples: |
     - ja
+    - yes
+    - yes i can do that
+    - yeah i can do that
     - ja det gør jeg
     - ja det er jeg
     - absolut
     - selvfølgelig
     - naturligvis
     - jeps
+    - yes i can
     - yep
     - jep
     - yeps
@@ -78,6 +91,13 @@ nlu:
 - intent: deny
   examples: |
     - nej
+    - no i cant do that
+    - no i cannot do that
+    - no i cant
+    - no i do not
+    - no i dont
+    - no
+    - nope
     - forkert
     - ikke rigtigt
     - desværre ikke
@@ -94,6 +114,10 @@ nlu:
 
 - intent: gentag
   examples: |
+    - can you repeat
+    - repeat
+    - please repeat
+    - i did not hear what you said
     - gentag
     - Kan du gentage
     - jeg vil gerne have den en gang til
@@ -107,12 +131,14 @@ nlu:
 
 - intent: bye
   examples: |
+    - bye
     - farvel
     - ses
     - farvel og tak
 
 - intent: bot_challenge
   examples: |
+    - are you a robot?
     - er du en robot?
     - er du et menneske?
     - taler jeg med en robot?
