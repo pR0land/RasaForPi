@@ -75,6 +75,14 @@ while True:
                 elif alarm == "Light":
                     ser.write(b"Start Prompting\n")
                     pixels.wakeup()
+                elif alarm == "Talk":
+                    ser.write(b"Start Prompting\n")
+                    bot_message = "Hej har du tid til at svare på et kort spørgeskema?"
+
+                    engine.say(bot_message)  # Bot speak
+                    engine.runAndWait()
+                    engine.stop()
+
 
                 if response == 'answer':
                     message = input("Skriv hvad du vil sige:")
