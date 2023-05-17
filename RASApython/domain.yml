@@ -1,63 +1,123 @@
 version: "3.1"
 
 intents:
-  - pause
-  - resume
-  - gentag
-  - uddyb
-  - what
-  - besvarelse_dårlig
-  - besvarelse_god
-  - afkræft
-  - bekræft
-  - stop
-  - vågn_op
-  - goodbye
+  - greeting
+  - forklaring
+  - klar
+  - affirm
+  - deny
+  - bye
   - bot_challenge
-  - spørgsmål
+  - uddyb
+  - gentag
 
-responses:
+responses: #0
   utter_greet:
-  - text: "Hej! Er du klar til at besvare spørgeskemaer?"
+  - text:  "Hej! Jeg vil gerne hjælpe dig med at bestemme din genoptrænings-score, gennem nogle spørgsmål. Vil du have en forklaring af hvad genoptrænings-scoren er eller er du klar til at besvare første spørgsmål?"
 
-  utter_besvarD:
-  - text: "Det er jeg ked af at høre, vil du uddybe hvorfor?"
+  utter_forklarRankin: #1
+    - text: "Din genoptrænings-score vurderer effekten af stroke på dit daglige liv, altså i hvor høj en grad man er i stand til at tage vare på sit eget liv. At bestemme din genoptrænings-score på forskellige punkter I dit forløb hjælper med at måle dine fremskridt."
 
-  utter_besvarG:
-  - text: "Godt at høre, har du nogen tilføjelser?"
+  utter_inQuestion: #2
+  - text: "Jeg vil gerne tale om ting, du var I stand til at gøre før dit stroke, og om stroket har ændret din evne til at gøre dem nu. Disse spørgsmål handler om din evne til at gøre ting, ikke om du kan lide eller vil gøre dem."
 
-  utter_pause:
-  - text: "Jeg venter"
+  utter_1stQuestion: #3
+  - text: "Er du helt dig selv igen, som du var forud for dit stroke? Hvis du vil have en forklaring så bed mig om at uddybe."
 
-  utter_resume:
-    - text: "Ok vi fortsætter"
+  utter_2ndQuestion: #4
+    - text: "Oplever du nye symptomer eller vanskeligheder siden stroket?"
 
-  utter_gentag:
-    - text: "Jeg gentager spørgsmålet"
+  utter_mrs0: #5
+    - text: "Din mRS score er 0."
 
-  utter_what:
-    - text: "Undskyld det forstod jeg ikke, kan du gentage?"
+  utter_3rdQuestion: #6
+    - text: "Kan du klare de samme ting som du kunne lige før dit stoke selvom det nu tager længere tid og ikke er i samme omfang? Hvis du vil have en forklaring så bed mig om at uddybe."
 
-  utter_uddyb:
-    - text: "Jeg uddyber spørgsmålet"
+  utter_forklar1st: #7
+    - text: "Dette spørgsmål spørger, om du er symptomfri og ikke har problemer som følge af et stroke. Svar nej hvis du oplever symptomer som følge af stroke."
 
-  utter_goodbye:
-  - text: "Farvel :)"
+  utter_forklar3rd: #8
+   - text: "Dette spørgsmål spørger, om virkninger af stroket forhindrer dig I at gøre ting, du gjorde før stroket. Svar nej, hvis der er noget, du plejede at gøre før stroket, men ikke længere kan. Svar ja, hvis du kan alt, hvad du plejede, selvom det tager dig mere tid."
 
-  utter_spørgeskema:
-    - text: "Der er ... spørgeskema(er), i dag."
+  utter_4thQuestion: #9
+    - text: "Er du i stand til at arbejde eller studere?"
+
+  utter_5thQuestion: #10
+    - text: "Kan du tage dig af din familie?"
+
+  utter_6thQuestion: #11
+    - text: "Gjorde du det før stroket?"
+
+  utter_7thQuestion: #12
+    - text: "Kan du stadig gøre alle de ting, du kunne lide at lave i din fritid?"
+
+  utter_mrs1: #13
+    - text: "Din mRS score er 1."
+
+  utter_8thQuestion: #14
+    - text: "Ville du være i stand til at bo alene uden hjælp fra en anden person? Dette indbefatter at du selv kan gå i bad, klare toiletbesøg, handle ind, lave eller bestille mad, og håndtere økonomien. Hvis du vil have en bedre forklaring så bed mig om at uddybe."
+
+  utter_forklar8th: #15
+    - text: "Dette spørgsmål hanlder specifikt om aktiviteter, du skal udføre for at kunne leve og tage vare på dig selv uden hjælp fra en anden person. Svar ja, hvis du kunne leve alene uden hjælp."
+
+  utter_9thQuestion: #16
+    - text: "Kan du lave et enkelt måltid uden hjælp fra en anden person?"
+
+  utter_10thQuestion: #17
+    - text: "Kan du lave grundlæggende huslige pligter, som at rydde tallerkner væk efter at have spist eller at lægge tøj sammen?"
+
+  utter_11thQuestion: #18
+    - text: "Hvis du skulle, kunne du så tage i et indkøbscenter og købe et brød?"
+
+  utter_12thQuestion: #19
+    - text: "Kan du passe din egen indkomst eller pension? Kan du selv betale regninger?"
+
+  utter_13thQuestion: #20
+    - text: "Kan du ringe til en taxa eller tage bussen eller toget?"
+
+  utter_mrs2: #21
+    - text: "Din mRS score er 2."
+
+  utter_14thQuestion: #22
+    - text: "Kan du gå fra det ene rum til et andet uden hjælp fra en anden person?"
+
+  utter_forklar14th: #23
+    - text: "Dette spørgsmål handler om, hvorvidt du absolut har brug for hjælp fra en anden person til at gå fra et rum til et andet, ikke om du bruger en stok eller rollator."
+
+  utter_15thQuestion: #24
+    - text: "Kan du gøre det, hvis det er absolut nødvendigt?"
+
+  utter_mrs3: #25
+    - text: "Din mRS score er 3."
+
+  utter_mrs4: #26
+    - text: "Din mRS score er 4."
+
+
+  utter_finished:
+    - text: "Tak, det var alt jeg skulle bruge, hav en god dag :)"
+
+  utter_bye:
+    - text: "Ok. Farvel, hav en fortsat god dag."
 
   utter_iamabot:
-  - text: "Jeg er en robot, lavet af Rasa."
+  - text: "Jeg er en robot, lavet at Rasa"
 
-  utter_bekræft:
-    - text: "Godt!"
+  utter_nextquestion:
+    - text: "Er du klar til næste spørgsmål?"
 
-  utter_afkræft:
-    - text: "OK"
+  utter_waiting:
+    - text: "Ok, sig til når du er klar"
 
-  utter_testSp:
-    - text: "Hvordan har du det?"
+  utter_iheard:
+    - text: "Jeg hørte du sagde ... passer det?"
+
+  utter_save:
+    - text: "Ok, jeg gemmer svaret."
+
+actions:
+  - save_user_input_to_file
+
 
 session_config:
   session_expiration_time: 60

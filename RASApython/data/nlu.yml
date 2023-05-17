@@ -1,113 +1,145 @@
 version: "3.1"
 
 nlu:
-- intent: vågn_op
+- intent: greeting
   examples: |
+    - hello
+    - hi
+    - hey
     - hej
-    - sesam
+    - hej Sesam
     - goddag
-    - hejhej
-    - hej hej
-    - hej du
     - godmorgen
-    - god eftermiddag
     - godaften
-    - møjn
-    - sesam vågn op
-    - snak
-    - vågn op
-    - let's go
+    - halløj
+    - hejsa
+    - halløjsa
 
-- intent: stop
+- intent: forklaring
   examples: |
-    - ses
-    - stop
-    - farvel
-    - snakkes senere
-    - godnat
-    - tak for i dag
-    - hav det godt
+    - explanation
+    - i would like an explanation
+    - please explain
+    - jeg vil gerne have spørgsmålet uddybet
+    - jeg vil gerne have en forklaring
+    - forklar
+    - uddyb
+    - forstår ikke
+    - kan ud uddybe spørgsmålet?
+    - hvad betyder det
 
-- intent: bekræft
+- intent: klar
+  examples: |
+    - ready for questions
+    - i am ready
+    - questions
+    - answer questions
+    - jeg er klar til at besvare spørgsmålene
+    - jeg vil gerne besvare
+    - besvare
+    - spørgsmål
+    - første spørgsmål
+    - klar
+    - jeg er klar
+
+- intent: affirm
   examples: |
     - ja
     - yes
-    - perfekt
-    - super
+    - yes i can do that
+    - yeah i can do that
+    - ja det gør jeg
+    - ja det er jeg
+    - absolut
     - selvfølgelig
-    - lyder godt
+    - naturligvis
+    - jeps
+    - yes i can
+    - yep
+    - jep
+    - yeps
+    - præcis
+    - klart
+    - helt klart
+    - godt nok
+    - udemærket
+    - det passer
+    - det kan jeg godt
+    - ingen problemer
+    - ok
+    - det er rigtigt
+    - rigtigt
+    - okay
     - korrekt
+    - hvis det kun er enkelte ting
+    - det vil jeg sige
+    - jeg kan selv
+    - jeg klare det hele selv
+    - ja med stok
+    - ja med rollator
+    - næsten
+    - jaer
+    - yeah
+    - det kan jeg også
+    - det kan jeg også godt
+    - ja når jeg har min bil
+    - køre i egen bil
+    - jeg kan ringe til taxa
+    - jeg kan tage bus
+    - jeg kan tage tog
 
-- intent: afkræft
+- intent: deny
   examples: |
     - nej
-    - næh
-    - aldrig
-    - det tror jeg ikke
-    - det kan jeg ikke lide
+    - no i cant do that
+    - no i cannot do that
+    - no i cant
+    - no i do not
+    - no i dont
+    - no
+    - nope
+    - forkert
     - ikke rigtigt
-
-- intent: besvarelse_god
-  examples: |
-    - perfekt
-    - godt
-    - fedt
-    - har det godt
-    - dejligt
-    - jeg har det godt
-    - jeg har det ok
-    - jeg har det super
-    - meget godt
-    - helt perfekt
-    - virkelig godt
-    - så perfekt
-    - jeg er glad
-
-- intent: besvarelse_dårlig
-  examples: |
-    - har haft en lorte dag
-    - jeg er ked af det
-    - ked af det
-    - jeg har det ikke så godt
-    - jeg har det ikke godt
-    - jeg er sur
-    - jeg er skuffet
-    - meget ked af det
-    - trist
-    - deprimeret
-
-- intent: bot_challenge
-  examples: |
-    - er du en robot?
-    - er du et menneske?
-    - snakker jeg med en robot?
-    - snakker jeg med et menneske?
-
-- intent: what
-  examples: |
-    - qwe
-    - wew
-    - giver ingen mening
-    - sludder
-
-- intent: uddyb
-  examples: |
-    - kan du uddybe spørgsmålet?
+    - desværre ikke
+    - tværtimod 
+    - næh
+    - næ
+    - bestemt ikke
+    - slet ikke
+    - ikke sådan lige
+    - det er ikke muligt
+    - det kan jeg ikke
+    - nej det er jeg ikke
+    - ikke fuldt ud
 
 - intent: gentag
   examples: |
-    - kan du gentage spørgsmålet
-    - jeg hørte det ikke
-    - jeg forstår ikke
+    - can you repeat
+    - repeat
+    - please repeat
+    - i did not hear what you said
+    - gentag
+    - Kan du gentage
+    - jeg vil gerne have den en gang til
+    - en gang mere
+    - hørte det ikke
+    - Undskyld kan du gentage hvad du sagde
+    - er ikke helt sikker på jeg hørte det
+    - fangede det ikke
+    - kan du sige det igen
+    - jeg missede det
 
-- intent: resume
+- intent: bye
   examples: |
-    - ok forstæt
-    - fortsæt
-    - gå videre
+    - bye
+    - farvel
+    - ses
+    - farvel og tak
 
-- intent: pause
+- intent: bot_challenge
   examples: |
-    - vent
-    - vent lige
-    - pause
+    - are you a robot?
+    - er du en robot?
+    - er du et menneske?
+    - taler jeg med en robot?
+    - taler jeg med et menneske?

@@ -1,38 +1,615 @@
 version: "3.1"
 
 stories:
-
-- story: only_good
+- story: greeting
   steps:
-    - intent: vågn_op
+    - intent: greeting
     - action: utter_greet
-    - intent: bekræft
-    - action: utter_bekræft
-    - intent: bekræft
-    - action: utter_bekræft
-    - action: utter_testSp
-    - intent: besvarelse_god
-    - action: utter_besvarG
-    - intent: pause
-    - action: utter_pause
-    - intent: resume
-    - action: utter_resume
-    - intent: gentag
-    - action: utter_gentag
-    - intent: what
-    - action: utter_what
-    - intent: stop
-    - action: utter_goodbye
-    - intent: uddyb
-    - action: utter_uddyb
-    - intent: spørgsmål
-    - action: utter_uddyb
 
-- story: only_bad
+- story: gentagGreeting
   steps:
-  - intent: vågn_op
-  - action: utter_greet
-  - intent: besvarelse_dårlig
-  - action: utter_besvarD
-  - intent: afkræft
-  - action: utter_afkræft
+    - intent: greeting
+    - action: utter_greet
+    - intent: gentag
+    - action: utter_greet
+
+- story: forklaring1
+  steps:
+    - action: utter_greet #0
+    - intent: forklaring
+    - action: utter_forklarRankin #1
+    - action: utter_inQuestion #2
+    - action: utter_1stQuestion #3
+
+- story: gentagForklaring1
+  steps:
+    - action: utter_greet #0
+    - intent: forklaring
+    - action: utter_forklarRankin #1
+    - action: utter_inQuestion #2
+    - action: utter_1stQuestion #3
+    - intent: gentag
+    - action: utter_forklarRankin #1
+    - action: utter_inQuestion #2
+    - action: utter_1stQuestion #3
+
+- story: startSpørgsmål
+  steps:
+    - action: utter_greet #0
+    - intent: klar
+    - action: utter_inQuestion #2
+    - action: utter_1stQuestion #3
+
+- story: gentagStartSpørgsmål
+  steps:
+    - action: utter_greet #0
+    - intent: klar
+    - action: utter_inQuestion #2
+    - action: utter_1stQuestion #3
+    - intent: gentag
+    - action: utter_inQuestion #2
+    - action: utter_1stQuestion #3
+
+- story: 1stJa
+  steps:
+    - action: utter_1stQuestion #3
+    - intent: affirm
+    - action: utter_2ndQuestion #4
+
+- story: gentag1stJa
+  steps:
+    - action: utter_1stQuestion #3
+    - intent: gentag
+    - action: utter_1stQuestion #3
+    - intent: affirm
+    - action: utter_2ndQuestion #4
+
+- story: 1stNej
+  steps:
+    - action: utter_1stQuestion #3
+    - intent: deny
+    - action: utter_3rdQuestion #6
+
+- story: gentag1stNej
+  steps:
+    - action: utter_1stQuestion #3
+    - intent: gentag
+    - action: utter_1stQuestion #3
+    - intent: deny
+    - action: utter_3rdQuestion #6
+
+- story: 1stForklarJa
+  steps:
+    - action: utter_1stQuestion #3
+    - intent: forklaring
+    - action: utter_forklar1st #7
+    - intent: affirm
+    - action: utter_2ndQuestion #4
+
+- story: gentag1stForklarJa
+  steps:
+    - action: utter_1stQuestion #3
+    - intent: forklaring
+    - action: utter_forklar1st #7
+    - intent: gentag
+    - action: utter_forklar1st #7
+    - intent: affirm
+    - action: utter_2ndQuestion #4
+
+- story: 1stForklarNej
+  steps:
+    - action: utter_1stQuestion #3
+    - intent: forklaring
+    - action: utter_forklar1st #7
+    - intent: deny
+    - action: utter_3rdQuestion #6
+
+- story: gentag1stForklarNej
+  steps:
+    - action: utter_1stQuestion #3
+    - intent: forklaring
+    - action: utter_forklar1st #7
+    - intent: gentag
+    - action: utter_forklar1st #7
+    - intent: deny
+    - action: utter_3rdQuestion #6
+
+- story: 2ndNej
+  steps:
+    - action: utter_2ndQuestion #4
+    - intent: deny
+    - action: utter_mrs0 #5
+
+- story: gentag2ndNej
+  steps:
+    - action: utter_2ndQuestion #4
+    - intent: gentag
+    - action: utter_2ndQuestion #4
+    - intent: deny
+    - action: utter_mrs0 #5
+
+- story: 2ndJa
+  steps:
+    - action: utter_2ndQuestion #4
+    - intent: affirm
+    - action: utter_3rdQuestion #6
+
+- story: gentag2ndJa
+  steps:
+    - action: utter_2ndQuestion #4
+    - intent: gentag
+    - action: utter_2ndQuestion #4
+    - intent: affirm
+    - action: utter_3rdQuestion #6
+
+- story: 3rdForklarNej
+  steps:
+    - action: utter_3rdQuestion #6
+    - intent: forklaring
+    - action: utter_forklar3rd #8
+    - intent: deny
+    - action: utter_8thQuestion #14
+
+- story: gentag3rdForklarNej
+  steps:
+    - action: utter_3rdQuestion #6
+    - intent: forklaring
+    - action: utter_forklar3rd #8
+    - intent: gentag
+    - action: utter_forklar3rd #8
+    - intent: deny
+    - action: utter_8thQuestion #14
+
+- story: 3rdForklarJa
+  steps:
+    - action: utter_3rdQuestion #6
+    - intent: forklaring
+    - action: utter_forklar3rd #8
+    - intent: affirm
+    - action: utter_4thQuestion #9
+
+- story: gentag3rdForklarJa
+  steps:
+    - action: utter_3rdQuestion #6
+    - intent: forklaring
+    - action: utter_forklar3rd #8
+    - intent: gentag
+    - action: utter_forklar3rd #8
+    - intent: affirm
+    - action: utter_4thQuestion #9
+
+- story: 3rdJa
+  steps:
+    - action: utter_3rdQuestion #6
+    - intent: affirm
+    - action: utter_4thQuestion #9
+
+- story: gentag3rdJa
+  steps:
+    - action: utter_3rdQuestion #6
+    - intent: gentag
+    - action: utter_3rdQuestion #6
+    - intent: affirm
+    - action: utter_4thQuestion #9
+
+- story: 3rdNej
+  steps:
+    - action: utter_3rdQuestion #6
+    - intent: deny
+    - action: utter_8thQuestion #14
+
+- story: gentag3rdNej
+  steps:
+    - action: utter_3rdQuestion #6
+    - intent: gentag
+    - action: utter_3rdQuestion #6
+    - intent: deny
+    - action: utter_8thQuestion #14
+
+- story: 4thJa
+  steps:
+    - action: utter_4thQuestion #9
+    - intent: affirm
+    - action: utter_5thQuestion #10
+
+- story: gentag4thJa
+  steps:
+    - action: utter_4thQuestion #9
+    - intent: gentag
+    - action: utter_4thQuestion #9
+    - intent: affirm
+    - action: utter_5thQuestion #10
+
+- story: 4thNej
+  steps:
+    - action: utter_4thQuestion #9
+    - intent: deny
+    - action: utter_6thQuestion #11
+
+- story: gentag4thNej
+  steps:
+    - action: utter_4thQuestion #9
+    - intent: gentag
+    - action: utter_4thQuestion #9
+    - intent: deny
+    - action: utter_6thQuestion #11
+
+- story: 5thJa
+  steps:
+    - action: utter_5thQuestion #10
+    - intent: affirm
+    - action: utter_7thQuestion #12
+
+- story: gentag5thJa
+  steps:
+    - action: utter_5thQuestion #10
+    - intent: gentag
+    - action: utter_5thQuestion #10
+    - intent: affirm
+    - action: utter_7thQuestion #12
+
+- story: 5thNej
+  steps:
+    - action: utter_5thQuestion #10
+    - intent: deny
+    - action: utter_6thQuestion #11
+
+- story: gentag5thNej
+  steps:
+    - action: utter_5thQuestion #10
+    - intent: gentag
+    - action: utter_5thQuestion #10
+    - intent: deny
+    - action: utter_6thQuestion #11
+
+- story: 6thNej
+  steps:
+    - action: utter_6thQuestion #11
+    - intent: deny
+    - action: utter_7thQuestion #12
+
+- story: gentag6thNej
+  steps:
+    - action: utter_6thQuestion #11
+    - intent: gentag
+    - action: utter_6thQuestion #11
+    - intent: deny
+    - action: utter_7thQuestion #12
+
+- story: 6thJa
+  steps:
+    - action: utter_6thQuestion #11
+    - intent: affirm
+    - action: utter_8thQuestion #14
+
+- story: gentag6thJa
+  steps:
+    - action: utter_6thQuestion #11
+    - intent: gentag
+    - action: utter_6thQuestion #11
+    - intent: affirm
+    - action: utter_8thQuestion #14
+
+- story: 7thJa
+  steps:
+    - action: utter_7thQuestion #12
+    - intent: affirm
+    - action: utter_mrs1 #13
+
+- story: gentag7thJa
+  steps:
+    - action: utter_7thQuestion #12
+    - intent: gentag
+    - action: utter_7thQuestion #12
+    - intent: affirm
+    - action: utter_mrs1 #13
+
+- story: 7thNej
+  steps:
+    - action: utter_7thQuestion #12
+    - intent: deny
+    - action: utter_8thQuestion #14
+
+- story: gentag7thNej
+  steps:
+    - action: utter_7thQuestion #12
+    - intent: gentag
+    - action: utter_7thQuestion #12
+    - intent: deny
+    - action: utter_8thQuestion #14
+
+- story: 8thForklarJa
+  steps:
+    - action: utter_8thQuestion #14
+    - intent: forklaring
+    - action: utter_forklar8th #15
+    - intent: affirm
+    - action: utter_9thQuestion #16
+
+- story: gentag8thForklarJa
+  steps:
+    - action: utter_8thQuestion #14
+    - intent: forklaring
+    - action: utter_forklar8th #15
+    - intent: gentag
+    - action: utter_forklar8th #15
+    - intent: affirm
+    - action: utter_9thQuestion #16
+
+- story: 8thForklarNej
+  steps:
+    - action: utter_8thQuestion #14
+    - intent: forklaring
+    - action: utter_forklar8th #15
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: gentag8thForklarNej
+  steps:
+    - action: utter_8thQuestion #14
+    - intent: forklaring
+    - action: utter_forklar8th #15
+    - intent: gentag
+    - action: utter_forklar8th #15
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 8thJa
+  steps:
+    - action: utter_8thQuestion #14
+    - intent: affirm
+    - action: utter_9thQuestion #16
+
+- story: gentag8thJa
+  steps:
+    - action: utter_8thQuestion #14
+    - intent: gentag
+    - action: utter_8thQuestion #14
+    - intent: affirm
+    - action: utter_9thQuestion #16
+
+- story: 8thNej
+  steps:
+    - action: utter_8thQuestion #14
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: gentag8thNej
+  steps:
+    - action: utter_8thQuestion #14
+    - intent: gentag
+    - action: utter_8thQuestion #14
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 9thJa
+  steps:
+    - action: utter_9thQuestion #16
+    - intent: affirm
+    - action: utter_10thQuestion #17
+
+- story: gentag9thJa
+  steps:
+    - action: utter_9thQuestion #16
+    - intent: gentag
+    - action: utter_9thQuestion #16
+    - intent: affirm
+    - action: utter_10thQuestion #17
+
+- story: 9thNej
+  steps:
+    - action: utter_9thQuestion #16
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: gentag9thNej
+  steps:
+    - action: utter_9thQuestion #16
+    - intent: gentag
+    - action: utter_9thQuestion #16
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 10thJa
+  steps:
+    - action: utter_10thQuestion #17
+    - intent: affirm
+    - action: utter_11thQuestion #18
+
+- story: gentag10thJa
+  steps:
+    - action: utter_10thQuestion #17
+    - intent: gentag
+    - action: utter_10thQuestion #17
+    - intent: affirm
+    - action: utter_11thQuestion #18
+
+- story: 10thNej
+  steps:
+    - action: utter_10thQuestion #17
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: gentag10thNej
+  steps:
+    - action: utter_10thQuestion #17
+    - intent: gentag
+    - action: utter_10thQuestion #17
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 11thJa
+  steps:
+    - action: utter_11thQuestion #18
+    - intent: affirm
+    - action: utter_12thQuestion #19
+
+- story: gentag11thJa
+  steps:
+    - action: utter_11thQuestion #18
+    - intent: gentag
+    - action: utter_11thQuestion #18
+    - intent: affirm
+    - action: utter_12thQuestion #19
+
+- story: 11thNej
+  steps:
+    - action: utter_11thQuestion #18
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: gentag11thNej
+  steps:
+    - action: utter_11thQuestion #18
+    - intent: gentag
+    - action: utter_11thQuestion #18
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 12thJa
+  steps:
+    - action: utter_12thQuestion #19
+    - intent: affirm
+    - action: utter_13thQuestion #20
+
+- story: gentag12thJa
+  steps:
+    - action: utter_12thQuestion #19
+    - intent: gentag
+    - action: utter_12thQuestion #19
+    - intent: affirm
+    - action: utter_13thQuestion #20
+
+- story: 12thNej
+  steps:
+    - action: utter_12thQuestion #19
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: gentag12thNej
+  steps:
+    - action: utter_12thQuestion #19
+    - intent: gentag
+    - action: utter_12thQuestion #19
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 13thJa
+  steps:
+    - action: utter_13thQuestion #20
+    - intent: affirm
+    - action: utter_mrs2 #21
+
+- story: gentag13thJa
+  steps:
+    - action: utter_13thQuestion #20
+    - intent: gentag
+    - action: utter_13thQuestion #20
+    - intent: affirm
+    - action: utter_mrs2 #21
+
+- story: 13thNej
+  steps:
+    - action: utter_13thQuestion #20
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: gentag13thNej
+  steps:
+    - action: utter_13thQuestion #20
+    - intent: gentag
+    - action: utter_13thQuestion #20
+    - intent: deny
+    - action: utter_14thQuestion #22
+
+- story: 14thForklarJa
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: forklaring
+    - action: utter_forklar14th #23
+    - intent: affirm
+    - action: utter_mrs3 #25
+
+- story: gentag14thForklarJa
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: forklaring
+    - action: utter_forklar14th #23
+    - intent: gentag
+    - action: utter_forklar14th #23
+    - intent: affirm
+    - action: utter_mrs3 #25
+
+- story: 14thForklarNej
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: forklaring
+    - action: utter_forklar14th #23
+    - intent: deny
+    - action: utter_15thQuestion #24
+
+- story: gentag14thForklarNej
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: forklaring
+    - action: utter_forklar14th #23
+    - intent: gentag
+    - action: utter_forklar14th #23
+    - intent: deny
+    - action: utter_15thQuestion #24
+
+- story: 14thJa
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: affirm
+    - action: utter_mrs3 #25
+
+- story: gentag14thJa
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: gentag
+    - action: utter_14thQuestion #22
+    - intent: affirm
+    - action: utter_mrs3 #25
+
+- story: 14thForklarNej
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: deny
+    - action: utter_15thQuestion #24
+
+- story: gentag14thForklarNej
+  steps:
+    - action: utter_14thQuestion #22
+    - intent: gentag
+    - action: utter_14thQuestion #22
+    - intent: deny
+    - action: utter_15thQuestion #24
+
+- story: 15thJa
+  steps:
+    - action: utter_15thQuestion #24
+    - intent: affirm
+    - action: utter_mrs3 #25
+
+- story: gentag15thJa
+  steps:
+    - action: utter_15thQuestion #24
+    - intent: gentag
+    - action: utter_15thQuestion #24
+    - intent: affirm
+    - action: utter_mrs3 #25
+
+- story: 15thNej
+  steps:
+    - action: utter_15thQuestion #24
+    - intent: deny
+    - action: utter_mrs4 #26
+
+- story: gentag15thNej
+  steps:
+    - action: utter_15thQuestion #24
+    - intent: gentag
+    - action: utter_15thQuestion #24
+    - intent: deny
+    - action: utter_mrs4 #26

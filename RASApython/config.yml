@@ -1,5 +1,5 @@
 recipe: default.v1
-assistant_id: 20230331-135535-unsorted-covey
+assistant_id: 20230417-123758-commutative-audio
 language: en
 pipeline: null
 # # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
@@ -23,9 +23,8 @@ pipeline: null
 #   - name: FallbackClassifier
 #     threshold: 0.3
 #     ambiguity_threshold: 0.1
-policies:
-  - name: FormPolicy
 
+policies: null
 # # No configuration for policies was provided. The following default policies were used to train your model.
 # # If you'd like to customize them, uncomment and adjust the policies.
 # # See https://rasa.com/docs/rasa/policies for more information.
