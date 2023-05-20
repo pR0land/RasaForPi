@@ -10,7 +10,7 @@ sound_speed = 343.0 # lydens hastighed i luft
 fs = 44100 # vores sampling frekvens
 
 # Define frequencies of desired signal, time window, and FFT size
-frequencies = np.arange(500, 1500, 100) # eksempler på frekvenser som vi kigger efter i vores beregninger
+frequencies = np.arange(200, 5000, 100) # eksempler på frekvenser som vi kigger efter i vores beregninger
 time_window = np.linspace(0, 0.1, int(fs * 0.1))
 fft_size = 2048 # vores sample rate i vores fast fourier transform
 
@@ -42,16 +42,17 @@ def doa_estimation(sound_signals_matrix):
 # Define callback function for recording and beamforming
 def callback(indata, frames, time, status):
     # Extract recorded signal for each microphone
+
     X = np.vstack((indata[:, 0], indata[:, 1], indata[:, 2], indata[:, 3])) # <----- Add when we have more microphones
     # recorded_signal = np.vstack((indata[:, 0])) #                            <----- Remove when we have more microphones
-
+    print(X)
     # Compute DOA estimation based on cross-correlation
     theta_est = doa_estimation(X)
 
     # Update angle of user's voice
     global sound_origin_angle
     sound_origin_angle = theta_est * 180 / np.pi
-    print("Current angle:", sound_origin_angle)  # Add this line to print the angle
+    #print("Current angle:", sound_origin_angle)  # Add this line to print the angle
 
     # Compute beamformed signal for each microphone and sum the results
     beamformer_output = np.zeros_like(X[0], dtype=np.complex64)
@@ -73,5 +74,5 @@ def callback(indata, frames, time, status):
 print(sd.query_devices())
 
 # Start recording and beamforming
-with sd.InputStream(channels=4, blocksize=2048, samplerate=fs, callback=callback):
+with sd.InputStream(device=1, channels=4, blocksize=2048, samplerate=fs, callback=callback):
     sd.sleep(69420)
