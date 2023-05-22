@@ -41,7 +41,11 @@ class Pixels:
             self.put(f)
         else:
             self.put(self.pattern.listen)
-
+    def showAngle(self, angle):
+        pixel = self.round_angle(angle)/30
+        def f():
+            self.pattern.showSinglePixel(pixel)
+        self.put(f)
     def put(self, func):
         self.pattern.stop = True
         self.queue.put(func)
@@ -60,3 +64,9 @@ class Pixels:
             self.me.set_pixel(i, int(data[4 * i + 1]), int(data[4 * i + 2]), int(data[4 * i + 3]))
 
         self.me.show()
+    def round_angle(self, angle):
+        remainder = angle % 30
+        if remainder < 15:
+            return angle - remainder
+        else:
+            return angle + (30 - remainder) if angle < 360 - (30 - remainder) else 0

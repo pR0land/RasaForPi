@@ -3,13 +3,14 @@ import requests
 import serial
 import RPi.GPIO as GPIO
 import time
-#import speechRecon as sr
+import speechRecon as sr
 import pyttsx3
+import directionOfArrival as DOA
 
 from pixels import Pixels
 
-serialRead = True
-Talking = False
+serialRead = False
+Talking = True
 
 
 
@@ -51,6 +52,7 @@ def stopFeedback(type):
         GPIO.cleanup()
     elif type == "Light":
         pixels.off()
+
 
 
 while True:
@@ -121,6 +123,5 @@ while True:
             engine.runAndWait()
             engine.stop()
         giveFeedback(feedback)
-        #message = sr.VArecord()
-       # print(message)
+        print(message)
         message = input("Skriv hvad du vil sige:")

@@ -19,78 +19,117 @@ from danspeech.audio import load_audio
 import numpy as np
 import pyaudio
 import wave
-import librosa
+import queue
+import threading
 
-WAVE_OUTPUT_FILENAME = "output.wav"
-# Initialize PyAudio
-audio = pyaudio.PyAudio()
 
-# Set the sampling rate and the number of channels
-RATE = 16000
-CHANNELS = 2
-CHUNK = 1024
+class SpeechRecon(object):
 
-recordedData = np.array(np.float32)
+    def __init__(self, rate=16000, channels=4, chunk=1024):
+        self.WAVE_OUTPUT_FILENAME = "output.wav"
+        # Initialize PyAudio
+        self.audio = pyaudio.PyAudio()
+        self.queue = queue.Queue()
 
-bot_message = ""
-message = ""
+        # Set the sampling rate and the number of channels
+        self.RATE = rate
+        self.CHANNELS = channels
+        self.CHUNK = chunk
 
-my_mic = danspeech.audio.Microphone(device_index=1) #Siger hvad mic det er man skal bruge
+        self.quitEvent = threading.Event()
 
-model = TransferLearned()
+        # Open a stream to capture audio input from the ReSpeaker 4-Mic Array
+        self.stream = self.audio.open(format=pyaudio.paInt16,
+                            channels=self.CHANNELS,
+                            rate=self.RATE,
+                            input=True,
+                            input_device_index=1,
+                            frames_per_buffer=self.CHUNK,
+                            stream_callback=self.callback)
+    recordedData = np.array(np.float32)
 
-#def addToAudio(data):
-#    numpy.append(recordedData, data)
-#def callback(in_data, frame_count, time_info, status):
-    # Convert the audio input to a numpy array
-    #data = np.frombuffer(in_data, dtype=np.int16)
-    #dataAsFloat = data.astype(np.float32)
-    #addToAudio(dataAsFloat)
-    # Transcribe the audio using Danspeech
-    #recognizer = Recognizer(model=model)
-   # text = recognizer.recognize(dataAsFloat)
-    # Print the transcription
-    #print(f"Du sagde: {text}")
+    bot_message = ""
+    message = ""
 
- #   return (in_data, pyaudio.paContinue)
-def VArecord():
+    my_mic = danspeech.audio.Microphone(device_index=1) #Siger hvad mic det er man skal bruge
 
-    # Open a stream to capture audio input from the ReSpeaker 4-Mic Array
-    stream = audio.open(format=audio.get_format_from_width(2),
-                        channels=CHANNELS,
-                        rate=RATE,
-                        input=True,
-                        input_device_index=1,
-                        frames_per_buffer=CHUNK)
+    model = TransferLearned()
 
-    # Start the stream
-    stream.start_stream()
-    frames = []
-    # Wait for the stream to finish
-    #while stream.is_active():
-     #   time.sleep(0.1)
-    for i in range(0, int((RATE / CHUNK) * 7)):
-        #pass
-        data = stream.read(CHUNK)
-        frames.append(data)
-    # Stop the stream
-    stream.stop_stream()
-    stream.close()
 
-    # Terminate PyAudio
-    audio.terminate()
-    wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
-    wf.setnchannels(2)
-    wf.setsampwidth(audio.get_sample_size(audio.get_format_from_width(2)))
-    wf.setframerate(RATE)
-    wf.writeframes(b''.join(frames))
-    wf.close()
+    #def addToAudio(data):
+    #    numpy.append(recordedData, data)
+    def callback(self,in_data, frame_count, time_info, status):
+        # quing the inputdata
+        self.queue.put(in_data)
+        # Convert the audio input to a numpy array
+        #data = np.frombuffer(in_data, dtype=np.int16)
+        #dataAsFloat = data.astype(np.float32)
+        #addToAudio(dataAsFloat)
+        # Transcribe the audio using Danspeech
+        #recognizer = Recognizer(model=model)
+       # text = recognizer.recognize(dataAsFloat)
+        # Print the transcription
+        #print(f"Du sagde: {text}")
 
-    lyd = load_audio(path=f"{WAVE_OUTPUT_FILENAME}")
-    recognizer = Recognizer(model=model)
-    message = recognizer.recognize(lyd)
-    print(f"Du sagde: {message}")
+        return None, pyaudio.paContinue
 
-    return message
+    def readChunk(self):
+        self.quitEvent.clear()
+        while not self.quitEvent.is_set():
+            frames = self.queue.get()
+            if not frames:
+                break
+            frames = np.fromstring(frames, dtype='int16')
+            yield frames
+
+    def start(self):
+        #clear the queue
+        self.queue.queue.clear()
+        # Start the stream
+        self.stream.start_stream()
+
+    def stop(self):
+        self.quitEvent.set()
+        self.stream.stop_stream()
+        self.queue.put('')
+
+    def __enter__(self):
+        self.start()
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_val:
+            return False
+        self.stop()
+
+        # frames = []
+        # # Wait for the stream to finish
+        # #while stream.is_active():
+        #  #   time.sleep(0.1)
+        # for i in range(0, int((RATE / CHUNK) * 10)):
+        #     #pass
+        #     data = stream.read(CHUNK)
+        #     frames.append(data)
+        # # Stop the stream
+        # stream.stop_stream()
+        # stream.close()
+        #
+        # # Terminate PyAudio
+        # audio.terminate()
+        #
+        #
+        # wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
+        # wf.setnchannels(2)
+        # wf.setsampwidth(audio.get_sample_size(audio.get_format_from_width(2)))
+        # wf.setframerate(RATE)
+        # wf.writeframes(b''.join(frames))
+        # wf.close()
+        #
+        # lyd = load_audio(path=f"{WAVE_OUTPUT_FILENAME}")
+        # recognizer = Recognizer(model=model)
+        # message = recognizer.recognize(lyd)
+        # print(f"Du sagde: {message}")
+        #
+        # return message
 
 
