@@ -3,7 +3,7 @@ import requests
 import serial
 import RPi.GPIO as GPIO
 import time
-#import speechRecon as sr
+import speechRecon as sr
 import pyttsx3
 
 from pixels import Pixels
@@ -85,7 +85,7 @@ while True:
 
 
                 if response == 'answer':
-                    message = input("Skriv hvad du vil sige:")
+                    message = sr.VArecord()
                     print("stop prompt")
                     GPIO.setmode(GPIO.BOARD)
                     GPIO.setup(11, GPIO.OUT)
@@ -121,6 +121,6 @@ while True:
             engine.runAndWait()
             engine.stop()
         giveFeedback(feedback)
-        #message = sr.VArecord()
-       # print(message)
-        message = input("Skriv hvad du vil sige:")
+        message = sr.VArecord()
+        print(message)
+        #message = input("Skriv hvad du vil sige:")
