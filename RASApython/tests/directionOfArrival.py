@@ -42,6 +42,6 @@ def getDoa(inputSignal, fs=1):
 
         DOA = (DOA + 90 + 180) % 360
 
-    DOA = (-DOA + 135) % 360
+    DOA = ((-DOA + 135)+180) % 360
 
     return DOA

@@ -30,11 +30,11 @@ class LedPattern(object):
         pixels = []
         for i in range(12):
             if i == pixelToShow:
-                for i in range(3):
+                for j in range(3):
                     pixels.append(0)
                 pixels.append(24)
             else:
-                for i in range(4):
+                for j in range(4):
                     pixels.append(0)
         self.show(pixels)
     def off(self):

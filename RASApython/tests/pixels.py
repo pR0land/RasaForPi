@@ -42,7 +42,7 @@ class Pixels:
         else:
             self.put(self.pattern.listen)
     def showAngle(self, angle):
-        pixel = self.round_angle(angle)/30
+        pixel = ((self.round_angle(angle)/30) +6) % 12
         def f():
             self.pattern.showSinglePixel(pixel)
         self.put(f)
