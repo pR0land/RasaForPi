@@ -102,6 +102,8 @@ class SpeechRecon(object):
             return False
         self.stop()
 
+#This is the part which had a chance to understand danish, but was slow. Its no longer working,
+# since i rewrote the file after this was commented out
         # frames = []
         # # Wait for the stream to finish
         # #while stream.is_active():
