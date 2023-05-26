@@ -9,8 +9,8 @@ import directionOfArrival as DOA
 
 from pixels import Pixels
 
-serialRead = False
-Talking = True
+serialRead = True
+Talking = False
 
 
 
