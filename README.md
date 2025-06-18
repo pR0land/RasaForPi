@@ -1,2 +1,3 @@
 # RasaForPi
-This is a project trying to create a physical speech agent
+
+**RasaForPi** is a prototype for a **physical speech agent** built using Raspberry Pi and the Rasa conversational AI framework.
